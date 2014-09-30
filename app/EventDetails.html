@@ -19,11 +19,9 @@
     <div ng-controller="EventController" style="padding-left:20px; padding-right:20px">
         <div id="me">
             <img data-ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
-
             <div class="row">
                 <div class="span11">
-                    <h2>{{event.name}}
-                    </h2>
+                    <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2>
                 </div>
             </div>
             <div class="row">
