@@ -2,7 +2,7 @@
 
 
 
-eventsApp.filter('durations', function() {
+eventsApp.filter('durations', function() { // Custom filtering
     return function(duration) {
         switch (duration) {
             case 1:

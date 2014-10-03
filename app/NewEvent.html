@@ -16,17 +16,18 @@
 
         </div>
     </div>
+    <style>input.ng-invalid.ng-dirty {background-color: pink}</style>
     <div ng-controller="EditEventController" style="padding-left:20px; padding-right:20px">
         <div class="container" >
             <h1 ng-hide="editingEvent">New Event</h1>
             <h1 ng-show="editingEvent">Edit Event</h1>
             <hr/>
-            <form name="editEventForm">
+            <form name="newEventForm">
                 <fieldset>
                     <label for="eventName">Event Name:</label>
                     <input id="eventName" type="text" required placeholder="Name of your event..." ng-model="event.name" />
                     <label for="eventDate">Date:</label>
-                    <input id="eventDate" type="text" required placeholder="format (mm/dd/yyyy)..." ng-model="event.date" />
+                    <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" placeholder="format (mm/dd/yyyy)..." ng-model="event.date" />
                     <label for="eventTime">Time:</label>
                     <input id="eventTime" type="text" required placeholder="start and end time..." ng-model="event.time" />
                     <label for="eventLocation">Location:</label>
@@ -44,7 +45,7 @@
                 <br />
                 <br />
 
-                <button type="submit" class="btn btn-primary" ng-click="saveEvent(event, editEventForm)">Save</button>
+                <button type="submit" ng-disabled="newEventForm.$invalid" class="btn btn-primary" ng-click="saveEvent(event, newEventForm)">Save</button>
                 <button type="button" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
 
             </form>

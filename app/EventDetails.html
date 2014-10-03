@@ -32,6 +32,7 @@
                 <div class="span3">
                     <div><strong>Date:</strong> {{event.date}}</div>
                     <div><strong>Time:</strong> {{event.time}}</div>
+                    <div><strong>Cost:</strong> {{34 | currency}}</div>
                 </div>
                 <div class="span4">
                     <address>
@@ -52,14 +53,14 @@
                 <option value="-upVoteCount">Votes</option>
             </select>
             Show:
-            <select ng-model="query" class="input-medium">
+            <select ng-model="query.level" class="input-medium">
                 <option selected value="">All</option>
                 <option value="introductory">Introductory</option>
                 <option value="intermediate">Intermediate</option>
                 <option value="advanced">Advanced</option>
             </select>
             <ul class="thumbnails">
-                <li ng-repeat="session in event.sessions | filter:query | orderBy:sortorder" class="span11">
+                <li ng-repeat="session in event.sessions | filter:query | orderBy:sortorder" class="span11"> <!-- Creating custom filters is about the same as creating a custom service-->
                     <div class="row session">
                         <div class="span0 well votingWidget">
                             <div class="votingButton" ng-click="upVoteSession(session)">
