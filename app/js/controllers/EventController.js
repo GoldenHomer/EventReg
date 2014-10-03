@@ -2,6 +2,9 @@
 
 eventsApp.controller('EventController',
     function EventController($scope) {
+
+        $scope.snippet = '<span style="color:red">Huh?</span>'
+
     	$scope.sortorder = 'name';
         $scope.event = {
             name: 'Angular Boot Camp',

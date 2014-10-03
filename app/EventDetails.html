@@ -24,6 +24,10 @@
                     <h2 ng-bind-template="{{event.name}} {{event.date}}"></h2>
                 </div>
             </div>
+
+            <div ng-bind-html-unsafe="snippet">something</div> <!-- This directive is part of Angular Sanitize; can be dangerous-->
+            <div ng-bind-html="snippet">something</div>
+
             <div class="row">
                 <div class="span3">
                     <div><strong>Date:</strong> {{event.date}}</div>
@@ -93,6 +97,7 @@
 <script src="/js/controllers/EventController.js"></script>
 <script src="/js/filters.js"></script>
 <script src="/lib/bootstrap.min.js"></script>
+<script src="/lib/angular/angular-sanitize.js"></script>
 
 </body>
 </html>
