@@ -4,9 +4,16 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
 
 	.config(function($routeProvider){
 		$routeProvider
-			.when('/newEvent',
-			{
+			.when('/newEvent', {
 				templateUrl: 'templates/NewEvent.html',
 				controller: 'EditEventController'
 			})
-	})
+			.when('/events', {
+				templateUrl: 'templates/EventList.html',
+				controller: 'EventListController'
+			})
+			.when('/event/:eventId',{
+				templateUrl: 'templates/EventList.html',
+				controller: 'EventController'
+			});
+	});
