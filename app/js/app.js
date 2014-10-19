@@ -14,7 +14,12 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
 			})
 			.when('/event/:eventId',{
 				templateUrl: 'templates/EventList.html',
-				controller: 'EventController'
+				controller: 'EventController',
+				resolve: { // Delay loading a view until data is finished loading.
+					event: function($route, eventData){
+						return eventData.getEvent($route.current.pathParams.eventId).$promise;
+					}
+				}
 			})
 			.otherwise({
 				redirectTo: '/events'
