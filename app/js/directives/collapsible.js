@@ -12,7 +12,7 @@ eventsApp.directive('collapsible', function () { // Toggle content session infor
 				$scope.visible = !$scope.visible;
 			}
 		},
-		transclude: true,
+		transclude: true, // Tranclusion is used to avoid losing the content nested within the collapsible element in EventDetails.html
 		scope: {
 			title: '@'
 		}
