@@ -1,6 +1,6 @@
 'use strict';
 
-eventApp.directive('gravatar', function (gravatarUrlBuilder) {
+eventsApp.directive('gravatar', function (gravatarUrlBuilder) {
 	return {
 		restrict: 'E',
 		template: '<img />',
