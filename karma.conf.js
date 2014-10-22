@@ -7,7 +7,9 @@ module.exports = function(config){
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'app/**/*.js'
+      'app/**/*.js',
+      'app/test/*.js',
+      'partials/directives/*.html'
     ],
 
     autoWatch : true,
@@ -20,8 +22,17 @@ module.exports = function(config){
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
             ],
+
+    preprocessors: {
+      '**/*.html': 'ng-html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/'
+    },
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
